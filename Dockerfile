@@ -1,6 +1,6 @@
 FROM php:7.1.12-fpm-alpine
 
-LABEL maintainer="Ric Harvey <ric@ngd.io>"
+LABEL maintainer="Igor Kamyshev <garik.novel@gmail.com>"
 
 ENV php_conf /usr/local/etc/php-fpm.conf
 ENV fpm_conf /usr/local/etc/php-fpm.d/www.conf
@@ -11,6 +11,9 @@ ENV LUA_MODULE_VERSION 0.10.11
 ENV DEVEL_KIT_MODULE_VERSION 0.3.0
 ENV LUAJIT_LIB=/usr/lib
 ENV LUAJIT_INC=/usr/include/luajit-2.0
+
+ENV APP_ENV=prod
+ENV APP_DEBUG=0
 
 # resolves #166
 ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so php
@@ -263,7 +266,7 @@ ADD scripts/letsencrypt-renew /usr/bin/letsencrypt-renew
 RUN chmod 755 /usr/bin/pull && chmod 755 /usr/bin/push && chmod 755 /usr/bin/letsencrypt-setup && chmod 755 /usr/bin/letsencrypt-renew && chmod 755 /start.sh
 
 # copy in code
-ADD src/ /var/www/html/
+ADD app/ /var/www/html/
 ADD errors/ /var/www/errors
 
 
