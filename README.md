@@ -7,7 +7,7 @@ Project  is based on [richarvey/nginx-php-fpm](https://github.com/richarvey/ngin
 **s4d** is for easy deployment of **Symphony 4** using **Docker**. 
 
 
-> **Attention!** s4d was not created for development. You should use built-in PHP web server on your local mashine.
+> **Attention!** s4d was not created for development. You should use built-in PHP web server on your local machine.
 
 > **Attention!** s4d does not include database server. You have to deploy it additionally.
 
